@@ -1,26 +1,23 @@
-import Navbar from '../../components/NavBar';
-import Footer from '../../components/Footer';
-import ServiceCard from '../../components/ServiceCard';
+import ServiceCard from "@/components/ServiceCard";
 
-const servicesList = [
-    { title: "IT Systems Integration", description: "Optimizes enterprise resource allocation and system interoperability." },
-    { title: "Network & Data Center Infrastructure", description: "Ensures high availability and scalability of network resources." },
-    // Add other services similarly...
+const services = [
+  ["IT Systems Integration", "End‑to‑end integration aligned with OEM architectures."],
+  ["Network & Data Centers", "Secure enterprise routing, switching and wireless."],
+  ["Cloud & Hybrid Infrastructure", "Hybrid and cloud-ready enterprise platforms."],
+  ["Cybersecurity", "Perimeter, access control, and network security."],
+  ["Enterprise Servers & Storage", "Mission‑critical computing platforms."],
+  ["Managed Services", "Lifecycle support and SLA‑based operations."],
 ];
 
-const Services = () => {
-    return (
-        <div>
-            <Navbar />
-            <h2 className="text-2xl font-bold my-4">Our Services</h2>
-            <div className="flex flex-wrap">
-                {servicesList.map((service, index) => (
-                    <ServiceCard key={index} title={service.title} description={service.description} />
-                ))}
-            </div>
-            <Footer />
-        </div>
-    );
+export default function Services() {
+  return (
+    <div className="max-w-7xl mx-auto px-6 py-20">
+    <h2 className="text-3xl font-bold mb-10">Our Services</h2>
+    <div className="grid md:grid-cols-3 gap-8">
+        {services.map(([title, desc]) => (
+            <ServiceCard key={title} title={title} description={desc} />
+        ))}
+    </div>
+    </div>
+  );
 }
-
-export default Services;
